@@ -1,0 +1,191 @@
+/* ===< Header組件 CSS>=== */
+
+/* 大容器 */
+.header_wrapper {
+    width: 100%;
+    height: fit-content;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    user-select: none;
+}
+
+/* Header本尊 */
+.header {
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left:5vw;
+    padding-right:5vw;
+}
+.header_left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.header_right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    gap: 1.5rem;
+}
+
+/* Header Logo and Title*/
+.header_logo_clicker {
+    display: flex;
+    align-items: center;
+    height: 60%;
+    cursor: pointer;
+}
+.header_logo {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header_logo_img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 導航連結樣式 */
+.nav_link {
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.nav_link:hover {
+    color: #007bff;
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* Hover選單樣式 */
+.dropdown_container { position: relative; display: inline-block; }
+.dropdown_trigger { display: flex; align-items: center; gap: 0.5rem; color: #333; font-size: 1rem; font-weight: 500; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; }
+.dropdown_trigger:hover { color: #007bff; background-color: rgba(0, 123, 255, 0.1); }
+.dropdown_arrow { font-size: 0.8rem; transition: transform 0.3s ease; }
+.dropdown_container:hover .dropdown_arrow { transform: rotate(180deg); }
+.dropdown_menu { position: absolute; top: 100%; left: 0; background-color: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); min-width: 200px; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease; z-index: 1001; }
+.dropdown_container:hover .dropdown_menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.dropdown_item { display: block; padding: 0.75rem 1rem; color: #333; text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.dropdown_item:last-child { border-bottom: none; }
+.dropdown_item:hover { background-color: rgba(0,123,255,0.1); color: #007bff; }
+
+/* MatchRhino按鈕樣式 */
+.matchrhino_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    color: #323232;
+    text-decoration: none;
+    border-radius: 50%;
+    border: 2px solid #323232;
+    font-weight: 600;
+    transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out, background 0.3s ease-in-out;
+    cursor: pointer;
+    box-sizing: border-box;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+}
+
+.matchrhino_button .button_icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease-in-out, left 0.3s ease-in-out, right 0.3s ease-in-out, filter 0.3s ease-in-out;
+    position: absolute;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.matchrhino_button .button_icon img,
+.matchrhino_button .button_icon svg { display: block; line-height: 0; }
+
+/* 未hover時icon置中 */
+.matchrhino_button:not(:hover) .button_icon { left: 50%; transform: translate(-50%, -50%); }
+/* hover時icon在右側 */
+.matchrhino_button:hover .button_icon { right: 15px; transform: translateY(-50%); }
+
+.matchrhino_button .button_text {
+    position: absolute;
+    left: 23px; /* 與icon拉開距離 */
+    opacity: 0;
+    white-space: nowrap;
+    transition: none; /* 離開時立即消失 */
+    transform: translateX(-24px); /* 與icon距離再大一點 */
+    font-size: 0.9rem;
+}
+
+.matchrhino_button:hover { width: 160px; border-radius: 25px; color: white; border: 2px solid rgba(247,77,77,0); background: linear-gradient(140deg, rgba(247,77,77,1) 10%, rgba(247,123,109,1) 100%); background-color: #f74d4d; }
+.matchrhino_button:hover .button_text { opacity: 1; transform: translateX(0); transition: transform 0.3s ease-in-out, opacity 0.3s ease-in; }
+.matchrhino_button:hover .button_icon { filter: brightness(0) invert(1); }
+
+/* Discord按鈕樣式 */
+.discord_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    color: #323232;
+    text-decoration: none;
+    border-radius: 50%;
+    border: 2px solid #323232;
+    font-weight: 600;
+    transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out, color 0.3s ease-in-out, background 0.3s ease-in-out;
+    cursor: pointer;
+    box-sizing: border-box;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+}
+
+.discord_button .button_icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease-in-out, left 0.3s ease-in-out, right 0.3s ease-in-out;
+    position: absolute;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.discord_button .button_icon img,
+.discord_button .button_icon svg { display: block; line-height: 0; color: #5865F2; }
+
+/* 未hover時icon置中 */
+.discord_button:not(:hover) .button_icon { left: 50%; transform: translate(-50%, -50%); }
+/* hover時icon在右側 */
+.discord_button:hover .button_icon { right: 15px; transform: translateY(-50%); }
+
+.discord_button .button_text {
+    position: absolute;
+    left: 20px; /* 與icon拉開距離 */
+    opacity: 0;
+    white-space: nowrap;
+    transition: none; /* 離開時立即消失 */
+    transform: translateX(-24px); /* 與icon距離再大一點 */
+    font-size: 0.9rem;
+}
+
+.discord_button:hover { width: 120px; border-radius: 25px; color: white; border: none; background-color: #5865F2; }
+.discord_button:hover .button_text { opacity: 1; transform: translateX(0); transition: transform 0.1s ease-in-out, opacity 0.3s ease-in; }
+.discord_button:hover .button_icon { filter: brightness(0) invert(1); }
